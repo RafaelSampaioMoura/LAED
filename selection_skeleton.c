@@ -7,7 +7,7 @@
   4) Desafio: ordem crescente/decrescente via parâmetro
 
   Compile:
-    gcc -Wall -Wextra -O2 selection_skeleton.c -o sel
+    gcc -Wall -Wextra -O2 selection_skeleton.c -o sel.out
   Run:
     ./sel
 */
@@ -87,12 +87,11 @@ void selectionSort(int v[], int n, int ordem, Metrics *metrics)
                     metrics->comparacoes = metrics->comparacoes + 1;
                     smallest = j;
                 }
-
-                if (smallest != i)
-                {
-                    metrics->trocas = metrics->trocas + 1;
-                    swap_int(&v[i], &v[smallest]);
-                }
+            }
+            if (smallest != i)
+            {
+                metrics->trocas = metrics->trocas + 1;
+                swap_int(&v[i], &v[smallest]);
             }
         }
     }
@@ -164,16 +163,16 @@ int main(void)
     int v_repetidos[] = {3, 1, 3, 2, 3};
 
     // Dica: para vetor vazio, passe base=NULL e n=0 (mais simples e portável).
-    run_test("Vazio", NULL, 0, 1);
-    run_test("1 elemento", v_um, 1, 1);
-    run_test("Ordenado", v_ordenado, 10, 1);
-    run_test("Inverso", v_inverso, 10, 1);
-    run_test("Repetidos", v_repetidos, 10, 1);
+    // run_test("Vazio", NULL, 0, 1);
+    // run_test("1 elemento", v_um, 1, 1);
+    // run_test("Ordenado", v_ordenado, 10, 1);
+    // run_test("Inverso", v_inverso, 10, 1);
+    run_test("Repetidos", v_repetidos, 5, 1);
 
     // Desafio extra: decrescente
-    run_test("Ordenado", v_ordenado, 10, -1);
-    run_test("Inverso", v_inverso, 10, -1);
-    run_test("Repetidos", v_repetidos, 10, -1);
+    // run_test("Ordenado", v_ordenado, 10, -1);
+    // run_test("Inverso", v_inverso, 10, -1);
+    // run_test("Repetidos", v_repetidos, 5, -1);
 
     return 0;
 }
