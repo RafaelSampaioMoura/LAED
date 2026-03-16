@@ -4,34 +4,46 @@
 
 #define N(x)  (sizeof(x) / sizeof((x)[0]))
 
-void swp_int (int *a, int *b);
+typedef struct
+{
+    /* data */
+    long comps;
+    long swaps;
+} stats;
 
-void bubble_sort_basic(int arr[], int n);
+
+void swp_int (int *a, int *b, stats *s);
+
+void bubble_sort_basic(int arr[], int n, stats* stats);
 
 void imprimirVetor(int v[], int n);
 
 int main(int argc, char const *argv[])
 {
     /* code */
+    stats s = {0, 0};
     int art[] = {23, 65, 12, 34, 56, 78, 32, 12, 45, 23, 56};
     int n = sizeof(art)/ sizeof(art[0]);
     imprimirVetor(art, n);
-    bubble_sort_basic(art, n);
+    bubble_sort_basic(art, n, &s);
     imprimirVetor(art, n);
+    printf("Comparações: %ld\n", s.comps);
+    printf("Mudanças: %ld\n", s.swaps);
 
     return 0;
 }
 
 
-void swp_int (int *a, int *b)
+void swp_int (int *a, int *b, stats *s)
 {
     int tmp;
     tmp = *a;
     *a = *b;
     *b = tmp;
+    s->swaps++;
 }
 
-void bubble_sort_basic(int arr[], int n)
+void bubble_sort_basic(int arr[], int n, stats *stats)
 {
     int i,j;
 
@@ -41,8 +53,9 @@ void bubble_sort_basic(int arr[], int n)
         {
             if (arr[i] > arr[j])
             {
-                swp_int(&arr[i], &arr[j]);
+                swp_int(&arr[i], &arr[j], stats);
             }
+            stats->comps++;
         }
     }
 }
