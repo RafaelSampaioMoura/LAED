@@ -24,7 +24,7 @@ void swp_int_stats(int *a, int *b, stats *s)
     s->swaps++;
 };
 
-int *random_arr_gen(int num_limit, int length)
+int* random_arr_gen(int num_limit, int length)
 {
     int* arr = (int*)malloc(length * sizeof(int));
     for (int i = 0; i < length; i++)

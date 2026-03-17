@@ -1,4 +1,3 @@
-#include "utils.c"
 #include "sorting_algo.c"
 
 void test_function_bubble_basic()
@@ -6,7 +5,8 @@ void test_function_bubble_basic()
     stats s = {0, 0};
     int arr_organizado[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int arr_invertido[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int *arr_aleatorio[10] = random_arr_gen(100, 10);
+    int* arr_aleatorio[10]; 
+    arr_aleatorio[0] = random_arr_gen(100, 10);
 
     printf("==========+==========\n");
     printf("Vetor Ordenado c/ BubbleSort Básico:\n");
@@ -44,7 +44,8 @@ void test_function_bubble_early_stop()
     stats s = {0, 0};
     int arr_organizado[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int arr_invertido[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int *arr_aleatorio[10] = random_arr_gen(100, 10);
+    int *arr_aleatorio[10];
+    arr_aleatorio[0] = random_arr_gen(100, 10);
 
     printf("==========+==========\n");
     printf("Vetor Ordenado c/ BubbleSort EarlyStop:\n");
@@ -80,9 +81,10 @@ void test_function_bubble_early_stop()
 void test_function_selection_sort()
 {
     stats s = {0, 0};
-    int arr_organizado[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-    int arr_invertido[10] = {20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int *arr_aleatorio[10] = random_arr_gen(100, 20);
+    int arr_organizado[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+    int arr_invertido[20] = {20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int *arr_aleatorio[20];
+    arr_aleatorio[0] = random_arr_gen(100, 20);
 
     printf("==========+==========\n");
     printf("Vetor Ordenado c/ SelectionSort:\n");
@@ -120,7 +122,8 @@ void test_fuction_insertion_sort()
     stats s = {0, 0};
     int arr_organizado[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
     int arr_invertido[20] = {20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int *arr_aleatorio[20] = random_arr_gen(100, 20);
+    int *arr_aleatorio[20];
+    arr_aleatorio[0] = random_arr_gen(100, 20);
     int quase_ordenado[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 18, 19};
 
     printf("==========+==========\n");

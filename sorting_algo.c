@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <header.h>
+#include "header.h"
 #include "utils.c"
 
 void bubble_sort_basic(int arr[], int n, stats *stats)
