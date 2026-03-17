@@ -1,11 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-typedef struct
-{
-    long comp;
-    long swaps;
-} stats;
+#include <header.h>
 
 void swp_int(int *a, int *b);
 
@@ -40,14 +35,6 @@ int main(int argc, char const *argv[])
 
     
     return 0;
-}
-
-void swp_int(int *a, int *b)
-{
-    int tmp;
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
 }
 
 void insertion_sort(int arr[], int n, stats *s)

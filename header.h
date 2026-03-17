@@ -1,4 +1,5 @@
-#include "utils.c"
+#ifndef HEADER_H
+#define HEADER_H
 
 typedef struct
 {
@@ -7,4 +8,4 @@ typedef struct
     long swaps;
 } stats;
 
-void test_function(int arr[], stats *s);
+#endif

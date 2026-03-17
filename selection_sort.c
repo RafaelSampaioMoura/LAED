@@ -1,12 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-typedef struct
-{
-    /* data */
-    long comps;
-    long swaps;
-} stats;
+#include <header.h>
 
 void swp_int(int *a, int *b, stats *s);
 

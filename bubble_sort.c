@@ -1,15 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-
-#define N(x)  (sizeof(x) / sizeof((x)[0]))
-
-typedef struct
-{
-    /* data */
-    long comps;
-    long swaps;
-} stats;
+#include <header.h>
 
 
 void swp_int_stats (int *a, int *b, stats *s);
