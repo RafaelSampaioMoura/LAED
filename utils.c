@@ -7,14 +7,22 @@ void imprimir_vetor(int v[], int n)
     printf("\n");
 }
 
-void swp_int(int *a, int *b, stats *s)
+void swp_int(int *a, int *b)
+{
+    int tmp;
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+void swp_int_stats(int *a, int *b, stats *s)
 {
     int tmp;
     tmp = *a;
     *a = *b;
     *b = tmp;
     s->swaps++;
-}
+};
 
 int *random_arr_gen(int num_limit, int length)
 {
