@@ -1,9 +1,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+typedef struct
+{
+    long comp;
+    long swaps;
+} stats;
+
 void swp_int(int *a, int *b);
 
-void insertion_sort(int arr[], int n);
+void insertion_sort(int arr[], int n, stats *s);
 
 void imprimir_vetor(int arr[], int n)
 {
@@ -21,14 +27,11 @@ int main(int argc, char const *argv[])
     /* code */
     int N = 100;
 
+    stats s = {0, 0};
+
     int arr[20];
 
-    for (int i = 0; i < 20; i++)
-    {
-        /* code */
-        int value = rand() % (N + 1);
-        arr[i] = value;
-    }
+    
     printf("Inicial: ");
     imprimir_vetor(arr, 20);
     insertion_sort(arr, 20);
@@ -47,7 +50,7 @@ void swp_int(int *a, int *b)
     *b = tmp;
 }
 
-void insertion_sort(int arr[], int n)
+void insertion_sort(int arr[], int n, stats *s)
 {
     int i, j, key;
 
@@ -62,8 +65,10 @@ void insertion_sort(int arr[], int n)
             /* code */
             arr[j + 1] = arr[j];
             j = j - 1;
+            s->comp++;
         };
         arr[j + 1] = key;
+        s->swaps++;
         printf("Intermediário: ");
         imprimir_vetor(arr, n);
         
