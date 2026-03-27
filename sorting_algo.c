@@ -10,11 +10,11 @@ void bubble_sort_basic(int arr[], int n, stats *stats)
         return;
     }
 
-    int i,j;
+    int i, j;
 
-    for(i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
     {
-        for(j = i; j < n; j++)
+        for (j = i; j < n; j++)
         {
             if (arr[i] > arr[j])
             {
@@ -27,15 +27,21 @@ void bubble_sort_basic(int arr[], int n, stats *stats)
 
 void bubble_sort_improved(int arr[], int n, stats *stats)
 {
+    if (!arr || n == 0)
+    {
+        printf("Array vazio ou não-existente.\n");
+        return;
+    }
+
     int i, j, swapped = 0;
 
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        //Isso melhora a performance do código por que, quando não houver mais nenhuma troca,
-        //não é preciso continuar atravessando o vetor, então o algoritmo finaliza cedo.
-        for(j = i; j < n; j++)
+        // Isso melhora a performance do código por que, quando não houver mais nenhuma troca,
+        // não é preciso continuar atravessando o vetor, então o algoritmo finaliza cedo.
+        for (j = i; j < n; j++)
         {
-            if(arr[i] > arr[j])
+            if (arr[i] > arr[j])
             {
                 swp_int_stats(&arr[i], &arr[j], stats);
                 swapped = 1;
@@ -43,7 +49,7 @@ void bubble_sort_improved(int arr[], int n, stats *stats)
             stats->comps++;
         }
 
-        if(swapped == 0)
+        if (swapped == 0)
         {
             break;
         }
@@ -52,6 +58,12 @@ void bubble_sort_improved(int arr[], int n, stats *stats)
 
 void bubble_sort_order(int arr[], int n, stats *stats, int order)
 {
+    if (!arr || n == 0)
+    {
+        printf("Array vazio ou não-existente.\n");
+        return;
+    }
+
     int i, j, swapped = 0;
 
     for (int i = 0; i < n; i++)
@@ -91,6 +103,12 @@ void bubble_sort_order(int arr[], int n, stats *stats, int order)
 
 void insertion_sort(int arr[], int n, stats *s)
 {
+    if (!arr || n == 0)
+    {
+        printf("Array vazio ou não-existente.\n");
+        return;
+    }
+
     int i, j, key;
 
     for (i = 0; i < n; i++)
@@ -98,7 +116,7 @@ void insertion_sort(int arr[], int n, stats *s)
         /* code */
         key = arr[i];
         j = i - 1;
-        
+
         while (j >= 0 && arr[j] > key)
         {
             /* code */
@@ -116,6 +134,11 @@ void insertion_sort(int arr[], int n, stats *s)
 
 void selection_sort(int arr[], int n, stats *s, int ordem)
 {
+    if (!arr || n == 0)
+    {
+        printf("Array vazio ou não-existente.\n");
+        return;
+    }
     int i, j, swapped = 0;
     if (ordem == 1)
     {
