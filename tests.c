@@ -122,12 +122,18 @@ void test_function_bubble_early_stop()
     imprimir_vetor(arr_integral, 10);
     printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
 
+    s.comps = 0;
+    s.swaps = 0;
+
     printf("==========+==========\n");
     printf("Vetor Único c/ BubbleSort EarlyStop:\n");
     imprimir_vetor(arr_unico, 1);
     bubble_sort_improved(arr_unico, 1, &s);
     imprimir_vetor(arr_unico, 1);
     printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    s.comps = 0;
+    s.swaps = 0;
 
     printf("==========+==========\n");
     printf("Vetor vazio c/ BubbleSort EarlyStop:\n");
@@ -167,6 +173,10 @@ void test_function_bubble_early_stop()
 void test_function_selection_sort()
 {
     stats s = {0, 0};
+    int arr_vazio[0];
+    int arr_unico[1] = {1};
+    int arr_integral[20] = {-10, -9, -8, -7, -6, -1, -2, -3, -4, -5, 0, 5, 4, 3, 2, 1, 6,10, 9, 8, 7, 6};
+    int arr_repetido[20] = {2, 1, 3, 2, 3, 5, 4, 3, 1, 5, 2, 1, 3, 2, 3, 5, 4, 3, 1, 5};
     int arr_organizado[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
     int arr_invertido[20] = {20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     int arr_aleatorio[20];
@@ -179,6 +189,50 @@ void test_function_selection_sort()
         int value = rand() % (num_limit + 1);
         arr_aleatorio[i] = value;
     }
+
+    printf("==========+==========\n");
+    printf("Vetor Repetido c/ Selection Sort:\n");
+    imprimir_vetor(arr_repetido, 20);
+    selection_sort(arr_repetido, 20, &s, 1);
+    imprimir_vetor(arr_repetido, 20);
+    printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    s.comps = 0;
+    s.swaps = 0;
+
+    printf("==========+==========\n");
+    printf("Vetor Integral c/ Selection Sort:\n");
+    imprimir_vetor(arr_integral, 20);
+    selection_sort(arr_integral, 20, &s, 1);
+    imprimir_vetor(arr_integral, 20);
+    printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    s.comps = 0;
+    s.swaps = 0;
+
+    printf("==========+==========\n");
+    printf("Vetor Único c/ Selection Sort:\n");
+    imprimir_vetor(arr_unico, 1);
+    selection_sort(arr_unico, 1, &s, 1);
+    imprimir_vetor(arr_unico, 1);
+    printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    s.comps = 0;
+    s.swaps = 0;
+
+    printf("==========+==========\n");
+    printf("Vetor vazio c/ Selection Sort:\n");
+    selection_sort(arr_vazio, 0, &s, 1);
+
+    printf("==========+==========\n");
+    printf("Vetor Ordenado c/ Selection Sort:\n");
+    imprimir_vetor(arr_organizado, 20);
+    selection_sort(arr_organizado, 20, &s, 1);
+    imprimir_vetor(arr_organizado, 20);
+    printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    s.comps = 0;
+    s.swaps = 0;
 
     printf("==========+==========\n");
     printf("Vetor Ordenado c/ SelectionSort:\n");
