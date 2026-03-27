@@ -4,6 +4,12 @@
 
 void bubble_sort_basic(int arr[], int n, stats *stats)
 {
+    if (!arr || n == 0)
+    {
+        printf("Array vazio ou não-existente");
+        return;
+    }
+    
     int i,j;
 
     for(i = 0; i < n; i++)
