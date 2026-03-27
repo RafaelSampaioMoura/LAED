@@ -3,6 +3,9 @@
 void test_function_bubble_basic()
 {
     stats s = {0, 0};
+    int arr_vazio[0];
+    int arr_unico[1] = {1};
+    int arr_integral[10] = {-1, -2, -3, -4, -5, 0, 5, 4, 3, 2, 1};
     int arr_organizado[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int arr_invertido[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     int arr_aleatorio[10];
@@ -15,6 +18,30 @@ void test_function_bubble_basic()
         int value = rand() % (num_limit + 1);
         arr_aleatorio[i] = value;
     }
+
+    printf("==========+==========\n");
+    printf("Vetor Integral c/ BubbleSort Básico:\n");
+    imprimir_vetor(arr_integral, 10);
+    bubble_sort_improved(arr_integral, 10, &s);
+    imprimir_vetor(arr_integral, 10);
+    printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    s.comps = 0;
+    s.swaps = 0;
+
+    printf("==========+==========\n");
+    printf("Vetor Único c/ BubbleSort Básico:\n");
+    imprimir_vetor(arr_unico, 1);
+    bubble_sort_improved(arr_unico, 1, &s);
+    imprimir_vetor(arr_unico, 1);
+    printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    s.comps = 0;
+    s.swaps = 0;
+
+    printf("==========+==========\n");
+    printf("Vetor vazio c/ BubbleSort Básico:\n");
+    bubble_sort_improved(arr_vazio, 0, &s);
 
     printf("==========+==========\n");
     printf("Vetor Ordenado c/ BubbleSort Básico:\n");
@@ -50,6 +77,9 @@ void test_function_bubble_basic()
 void test_function_bubble_early_stop()
 {
     stats s = {0, 0};
+    int arr_vazio[0];
+    int arr_unico[1] = {1};
+    int arr_integral[10] = {-1, -2, -3, -4, -5, 0, 5, 4, 3, 2, 1};
     int arr_organizado[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int arr_invertido[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     int arr_aleatorio[10];
@@ -62,6 +92,24 @@ void test_function_bubble_early_stop()
         int value = rand() % (num_limit + 1);
         arr_aleatorio[i] = value;
     }
+
+    printf("==========+==========\n");
+    printf("Vetor Integral c/ BubbleSort EarlyStop:\n");
+    imprimir_vetor(arr_integral, 10);
+    bubble_sort_improved(arr_integral, 10, &s);
+    imprimir_vetor(arr_integral, 10);
+    printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    printf("==========+==========\n");
+    printf("Vetor Único c/ BubbleSort EarlyStop:\n");
+    imprimir_vetor(arr_unico, 1);
+    bubble_sort_improved(arr_unico, 1, &s);
+    imprimir_vetor(arr_unico, 1);
+    printf("Comparações: %ld\t Trocas: %ld\t\n", s.comps, s.swaps);
+
+    printf("==========+==========\n");
+    printf("Vetor vazio c/ BubbleSort EarlyStop:\n");
+    bubble_sort_improved(arr_vazio, 0, &s);
 
     printf("==========+==========\n");
     printf("Vetor Ordenado c/ BubbleSort EarlyStop:\n");
